@@ -1,0 +1,16 @@
+<!-- <ul>
+    <li *ngFor="let employee of employees; index as i; first as isFirst">
+        {{ i }} {{employee}} <span *ngIf="isFirst">-- MAIN</span>
+    </li>
+</ul> -->
+
+<ul>
+    @for (employee of employees; track employee.name) {
+        <li>
+            <span>{{ employee.name }} - </span>
+            <span [ngClass]="{'salary-expensive': employee.salary > 20}">{{ employee.salary }}</span>
+        </li>
+      } @empty {
+       <li>Empty list of users</li>
+    }
+</ul>
